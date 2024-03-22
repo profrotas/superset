@@ -92,7 +92,19 @@ class CeleryConfig:
 
 CELERY_CONFIG = CeleryConfig
 
-FEATURE_FLAGS = {"ALERT_REPORTS": True}
+FEATURE_FLAGS = {"ALERT_REPORTS": True, "EMBEDDED_SUPERSET": True}
+
+EXTRA_CATEGORICAL_COLOR_SCHEMES = [
+{
+    "id": 'profrotas-color-scheme',
+    "description": '',
+    "label": 'Esquema de cores Profrotas',
+    "isDefault": True,
+    "colors": ['#3E67F9', 'rgba(62, 103, 249, 0.2)','#FF894D', '#3EBC4B', '#FF2E00', 
+               '#FFA800', '#F4530E', '#787A84', '#E94A4A', '#244EE5', '#3FA3FF', '#29CCFF', '#869BDE', '#00538e', '#27365c', '#ED645E']   
+}
+]
+
 ALERT_REPORTS_NOTIFICATION_DRY_RUN = True
 WEBDRIVER_BASEURL = "http://superset:8088/"
 # The base URL for the email report hyperlinks.
