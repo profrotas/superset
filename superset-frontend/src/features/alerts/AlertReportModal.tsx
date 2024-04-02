@@ -883,7 +883,7 @@ const AlertReportModal: FunctionComponent<AlertReportModalProps> = ({
 
     // Need to make sure grace period is not lower than TIMEOUT_MIN
     if (value === 0) {
-      updateAlertState(target.name, null);
+      updateAlertState(target.name, undefined);
     } else {
       updateAlertState(
         target.name,
@@ -1410,7 +1410,8 @@ const AlertReportModal: FunctionComponent<AlertReportModalProps> = ({
               </StyledInputContainer>
               <StyledInputContainer css={noMarginBottom}>
                 <div className="control-label">
-                  {t('Value')} <span className="required">*</span>
+                  {t('Value')}{' '}
+                  {!conditionNotNull && <span className="required">*</span>}
                 </div>
                 <div className="input-container">
                   <input
@@ -1419,7 +1420,7 @@ const AlertReportModal: FunctionComponent<AlertReportModalProps> = ({
                     disabled={conditionNotNull}
                     value={
                       currentAlert?.validator_config_json?.threshold !==
-                      undefined
+                        undefined && !conditionNotNull
                         ? currentAlert.validator_config_json.threshold
                         : ''
                     }
